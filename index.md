@@ -1,4 +1,3 @@
-<!doctype html>
 <html class="no-js" lang="">
 
 <head>
@@ -26,7 +25,7 @@
 <button id="go">go</button>
 
 <p>Result:</p></br>
-<span id="translateResult" style="background-color: lightgray;"></span>
+<p><span id="translateResult" style="background-color: lightgray;"></span></p>
 </div>
 </body>
 
