@@ -25,7 +25,8 @@
 <input type="text" id="translate">
 <button id="go">go</button>
 
-<p>Result:</br><span id="translateResult" style="background-color: lightgray;"></span></p>
+<p>Result:</p></br>
+<span id="translateResult" style="background-color: lightgray;"></span>
 </div>
 </body>
 
