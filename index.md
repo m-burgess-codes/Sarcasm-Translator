@@ -21,7 +21,7 @@
 <body>
 
 <div style="text-align: center;">
-<input type="text" id="translate">
+<TextArea type="text" id="translate" cols="40" rows="5"></TextArea>
 <button id="go">go</button>
 
 <p>Result:</p>
