@@ -24,7 +24,7 @@
 <TextArea type="text" id="translate" cols="40" rows="5"></TextArea>
 <button id="go">go</button>
 
-<p>Result:</p>
+<p>Result:</p> <br /> 
 <p><span id="translateResult" style="background-color: lightgray;"></span></p>
 </div>
 </body>
