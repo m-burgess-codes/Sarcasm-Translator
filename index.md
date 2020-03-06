@@ -63,6 +63,7 @@
         new ClipboardJS(".btn");
       });
     </script>
+
   </head>
 
   <body>
@@ -72,7 +73,6 @@
 
     <div>
       <textarea type="text" id="translate" cols="40" rows="5"></textarea> <br />
-      <!--<button id="translateText" class="btn">Translate</button> <br />--><br />
 
       Result:<br />
       <textarea
@@ -89,5 +89,6 @@
       </button>
       <br />
     </div>
+
   </body>
 </html>
