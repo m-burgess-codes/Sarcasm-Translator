@@ -1,32 +1,93 @@
-<html class="no-js" lang="">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Sarcasm Translator</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>Sarcasm Translator</title>
+    <meta name="theme-color" content="#fafafa" />
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+    <style>
+      div {
+        text-align: center;
+      }
 
-  <meta name="theme-color" content="#fafafa">
+      .btn {
+        background-color: darkblue;
+        border: none;
+        color: white;
+        padding: 8px 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+    </style>
 
-<p style="text-align: center;">Translate your text to a sArCaStIc sTyLe.</p>
-  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+    <!--JS libraries-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 
-</head>
+    <!--main JS-->
+    <script>
+      $(document).ready(function() {
+        $.fn.translText = function() {
+          var y = $("#translate").val();
+          var x = alternativeCase(y);
 
-<body>
+          //------alternate upper and lower case------//
+          function alternativeCase(string) {
+            var output = "";
+            for (var i = 0; i < string.length; i++) {
+              if (i % 2 != 0) {
+                output += string[i].toUpperCase();
+              } else {
+                output += string[i].toLowerCase();
+              }
+            }
+            console.log(output);
+            return output;
+          }
 
-<div style="text-align: center;">
-<TextArea type="text" id="translate" cols="40" rows="5"></TextArea>
-<button id="go">go</button>
+          //------return result to result text area------//
+          $("#translateResult").val(x);
+        };
 
-<p>Result:</p> <br /> 
-<p><span id="translateResult" style="background-color: lightgray;"></span></p>
-</div>
-</body>
+        //------translate on keypress and paste-----//
+        $("#translate").keydown($.fn.translText);
+        $("#translate").keyup($.fn.translText);
 
+        //---invoke clipboard.js---//
+        new ClipboardJS(".btn");
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1 style="text-align: center;">
+      Translate your text to a sArCaStIc sTyLe.
+    </h1>
+
+    <div>
+      <textarea type="text" id="translate" cols="40" rows="5"></textarea> <br />
+      <!--<button id="translateText" class="btn">Translate</button> <br />--><br />
+
+      Result:<br />
+      <textarea
+        id="translateResult"
+        type="text"
+        cols="40"
+        rows="5"
+        value=""
+        readonly
+      ></textarea
+      ><br />
+      <button id="copy" class="btn" data-clipboard-target="#translateResult">
+        Copy
+      </button>
+      <br />
+    </div>
+  </body>
 </html>
